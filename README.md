@@ -20,9 +20,9 @@ npm run build --report
 ## 修改首页tabBar图标
 
   1. 找到mui的扩展图标库
-  2.将扩展图标库拷贝到项目中(连带字体文件一起拷贝)
-  3.在main.js中引入字体图标的样式文件
-  4.使用字体图标
+    2.将扩展图标库拷贝到项目中(连带字体文件一起拷贝)
+    3.在main.js中引入字体图标的样式文件
+    4.使用字体图标
 
 ## 设置当前选中的tab栏高亮
 
@@ -41,7 +41,7 @@ npm run build --report
    import HomeComponent from '../pages/home/'
   import MemberComponent from '../pages/member/'
   import ShopcarComponent from '../pages/shopcar/'
-  import SearchComponent from '../pages/search/
+  import SearchComponent from '../pages/search/'
 
    Vue.use(Router)
 
@@ -55,7 +55,7 @@ npm run build --report
     ],
     linkActiveClass: 'mui-active'
   })
-  ```
+```
 
   ## 首页九宫图的样式改造
 
@@ -80,4 +80,4 @@ npm run build --report
 .v-leave-active {
   transition: all 0.6s ease;
 }
-```
+ ```
