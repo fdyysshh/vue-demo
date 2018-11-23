@@ -3,15 +3,15 @@
     <div class="comment-contian">
         <h1>发表评论</h1>
         <hr>
-        <textarea placeholder="请输入要评价的内容(120字以内)" maxlength="120">
+        <textarea placeholder="请输入要评价的内容(120字以内)" maxlength="120" v-model="commentmsg">
 
         </textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <mt-button type="primary" size="large" @click="commentpost">发表评论</mt-button>
         <div class="comment-content">
             <ul>
                 <li v-for="(item,index) in commentList" :key="index">
                    <div class="header">第{{index+1}}楼 用户: {{item.user_name}} 发表时间:{{item.add_time | dataFormat}}</div>
-                   <p>{{item.content}}</p>
+                   <p>{{item.content=='undefined' ? '此人太懒':item.content || '此人太懒'}}</p>
                 </li>
             </ul>
         </div>
@@ -26,7 +26,8 @@ export default {
     data(){
         return {
            pageIndex:1,
-           commentList:[]
+           commentList:[],
+           commentmsg:''
         }
     },
     props:['id'],
@@ -42,6 +43,7 @@ export default {
             if(res.body.status===0){
                 //concat()拼接两个数组
               this.commentList = this.commentList.concat(res.body.message)
+            //   console.log(this.commentList)
             }else{
                  Toast('请求失败')
             }
@@ -53,6 +55,23 @@ export default {
             // alert('dd')
             this.pageIndex++
             this.getComment()
+        },
+
+       commentpost(){
+                //  alert('hh')  
+                this.$http.post('api/postcomment/'+this.id,{content:this.commentmsg}).then(res=>{
+                    console.log(res)
+                    if(res.body.status===0){
+                        Toast(res.body.message)
+                        this.pageIndex=1
+                        this.commentmsg=''
+                         this.commentList=[];
+                        this.getComment()
+                        console.log(this.commentList);
+                    }else{
+                        Toast('提交失败')
+                    }
+                })           
         }
         
     }
