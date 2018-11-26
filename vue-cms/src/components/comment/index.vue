@@ -67,7 +67,7 @@ export default {
                         this.commentmsg=''
                          this.commentList=[];
                         this.getComment()
-                        console.log(this.commentList);
+                        // console.log(this.commentList);
                     }else{
                         Toast('提交失败')
                     }
@@ -79,6 +79,7 @@ export default {
 </script>
 <style lang="less">
  .comment-contian{
+     padding: 0 3px;
      h1{
         font-size: 20px;
         font-weight: bold;

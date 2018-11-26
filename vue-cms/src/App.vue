@@ -1,7 +1,7 @@
 <template>
   <div class="app-container" id="app">
     <!-- 顶部区域 -->
-    <mt-header fixed title="天天购购"></mt-header>
+    <mt-header fixed title="天天购购" ></mt-header>
     
     <!-- 路由区域 -->
 		<transition>
@@ -19,7 +19,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link >
 			<router-link  class="mui-tab" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{$store.getters.getAllCount}}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link >
 			<router-link  class="mui-tab" to="/search">

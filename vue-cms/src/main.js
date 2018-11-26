@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import moment from 'moment'
 
 //使用vue-resource 发送请求
@@ -18,11 +19,12 @@ import './lib/mui/dist/css/icons-extra.css'
 
 
 //引入mint-ui
-import { Header,Swipe, SwipeItem, Button, Lazyload } from 'mint-ui';
+import { Header,Swipe, SwipeItem, Button, Lazyload ,Switch} from 'mint-ui';
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Button.name, Button);
+Vue.component(Switch.name, Switch);
 Vue.use(Lazyload);
 /* eslint-disable no-new */
 
@@ -38,5 +40,6 @@ Vue.use(VuePreview)
 new Vue({
   el: '#app',
   router,
-  render: h => h(App)
+  render: h => h(App),
+   store
 })
