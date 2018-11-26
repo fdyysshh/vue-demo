@@ -2,15 +2,15 @@
 <div id="app">
 
     <!-- 轮播图区域 -->
-  <mt-swipe :auto="4000">
+  <!-- <mt-swipe :auto="4000">
   <mt-swipe-item v-for="(item,index) in bannerList" :key="index">
       <a :href="item.url">
           <img :src="item.img" alt="">
       </a>
   </mt-swipe-item>
  
-</mt-swipe>
-
+</mt-swipe> -->
+    <swiper :bannerList=" bannerList" :isfull="true"></swiper>
 <!-- 九宫格区域 -->
 <div class="mui-content">
 		        <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -20,9 +20,9 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photoList">
 		                     <img src="../../assets/menu2.png" alt="">
 		                    <div class="mui-media-body">图片分享</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodsList">
 		                     <img src="../../assets/menu3.png" alt="">
-		                    <div class="mui-media-body">商品购买</div></a></li>
+		                    <div class="mui-media-body">商品购买</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="../../assets/menu4.png" alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+
+import swiper from '../../components/swiper'
 export default {
     data(){
         return {
@@ -63,31 +65,34 @@ export default {
             })
         },
         
+    },
+    components:{
+        swiper
     }
 };
 </script >
 <style lang="less">
-.mint-swipe{
-    height: 200px;
-    width: 100%;
-    .mint-swipe-item{
-        width: 100%;
-        height: 100%;
+// .mint-swipe{
+//     height: 200px;
+//     width: 100%;
+//     .mint-swipe-item{
+//         width: 100%;
+//         height: 100%;
        
           
            
-            a{
-                width: 100%;
-                height: 100%;
-                img{
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                }
-            }
+//             a{
+//                 width: 100%;
+//                 height: 100%;
+//                 img{
+//                     width: 100%;
+//                     height: 100%;
+//                     display: block;
+//                 }
+//             }
        
-    }
-}
+//     }
+// }
 
 .mui-content{
   .mui-table-view{
